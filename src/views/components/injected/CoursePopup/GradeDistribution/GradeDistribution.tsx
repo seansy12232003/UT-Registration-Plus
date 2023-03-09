@@ -4,11 +4,13 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 import Card from 'src/views/components/common/Card/Card';
 import { bMessenger } from 'src/shared/messages';
-import { Course } from 'src/shared/types/Course';
+import { Course, Semester } from 'src/shared/types/Course';
 import colors from 'src/views/styles/colors.module.scss';
 import Spinner from 'src/views/components/common/Spinner/Spinner';
 import Text from 'src/views/components/common/Text/Text';
 import Icon from 'src/views/components/common/Icon/Icon';
+import { Database, initializeDB } from 'src/views/lib/database/initializeDB';
+import { Distribution } from 'src/shared/types/Distribution';
 import styles from './GradeDistribution.module.scss';
 
 enum DataStatus {
@@ -92,7 +94,8 @@ export default function GradeDistribution({ course }: Props) {
     const [status, setStatus] = useState<DataStatus>(DataStatus.LOADING);
 
     useEffect(() => {
-        bMessenger.getDistribution({ course }).then(distribution => {
+        initializeDB().then(db => {
+            const distribution = fetchDistribution(db, course);
             if (!distribution) {
                 return setStatus(DataStatus.ERROR);
             }
@@ -158,3 +161,5 @@ export default function GradeDistribution({ course }: Props) {
         </Card>
     );
 }
+
+

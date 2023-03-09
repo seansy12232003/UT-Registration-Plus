@@ -5,6 +5,12 @@ import CourseCatalogMain from './components/CourseCatalogMain';
 import colors from './styles/colors.module.scss';
 import getSiteSupport, { SiteSupport } from './lib/getSiteSupport';
 import PopupMain from './components/PopupMain';
+import { initializeDB } from './lib/database/initializeDB';
+
+initializeDB().then(db => {
+    const res = db.exec("SELECT * FROM 'agg' LIMIT 0,30");
+    console.log(res);
+});
 
 const support = getSiteSupport(window.location.href);
 if (!support) {

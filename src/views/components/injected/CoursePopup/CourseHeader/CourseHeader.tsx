@@ -1,7 +1,6 @@
 import React from 'react';
 import { Course } from 'src/shared/types/Course';
 import Card from 'src/views/components/common/Card/Card';
-import Divider from 'src/views/components/common/Divider/Divider';
 import Icon from 'src/views/components/common/Icon/Icon';
 import Link from 'src/views/components/common/Link/Link';
 import Text from 'src/views/components/common/Text/Text';
