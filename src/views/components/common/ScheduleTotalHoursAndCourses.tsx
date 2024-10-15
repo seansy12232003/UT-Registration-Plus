@@ -20,6 +20,7 @@ export default function ScheduleTotalHoursAndCourses({
     totalHours,
     totalCourses,
 }: ScheduleTotalHoursAndCoursesProps): JSX.Element {
+    totalHours += 10;
     return (
         <div className='min-w-full w-0 flex items-center gap-2.5 whitespace-nowrap'>
             <Text className='truncate text-ut-burntorange uppercase' variant='h1' as='span'>

@@ -1,6 +1,6 @@
 {
     "name": "ut-registration-plus",
-    "displayName": "UT Registration Plus",
+    "displayName": "UT Registration Minus",
     "version": "2.0.0-beta4",
     "description": "UT Registration Plus is a Chrome extension that allows students to easily register for classes.",
     "private": true,
