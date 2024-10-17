@@ -15,12 +15,12 @@ interface LinkItem {
 
 const links: LinkItem[] = [
     {
-        text: 'OU Really Sucks',
-        url: 'https://www.espn.com/college-football/game/_/gameId/401404090/texas-oklahoma',
+        text: "Spring '25 Course Schedule",
+        url: 'https://utdirect.utexas.edu/apps/registrar/course_schedule/20252/',
     },
     {
-        text: 'OU Sucks',
-        url: 'https://www.espn.com/college-football/game/_/gameId/401628390/texas-oklahoma',
+        text: "Fall '24 Course Schedule",
+        url: 'https://utdirect.utexas.edu/apps/registrar/course_schedule/20249/',
     },
     // {
     //     text: "Summer '24 Course Schedule",
