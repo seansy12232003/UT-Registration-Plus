@@ -39,11 +39,24 @@ const REPO_NAME = 'UT-Registration-Plus';
 
 export const LONGHORN_DEVELOPERS_ADMINS = [
     { name: 'Sriram Hariharan', role: 'Founder', githubUsername: 'sghsri' },
-    { name: 'Elie Soloveichik', role: 'Senior Software Engineer', githubUsername: 'Razboy20' },
-    { name: 'Diego Perez', role: 'Senior Software Engineer', githubUsername: 'doprz' },
+    { name: 'Elie Soloveichik', role: 'Staff Engineer', githubUsername: 'Razboy20' },
+    { name: 'Diego Perez', role: 'Staff Engineer', githubUsername: 'doprz' },
     { name: 'Lukas Zenick', role: 'Senior Software Engineer', githubUsername: 'Lukas-Zenick' },
-    { name: 'Isaiah Rodriguez', role: 'Chief Design Officer', githubUsername: 'IsaDavRod' },
+    { name: 'Isaiah Rodriguez', role: 'Chief Operations and Design Officer', githubUsername: 'IsaDavRod' },
 ] as const satisfies TeamMember[];
+
+export const LONGHORN_DEVELOPERS_SWE = [
+    { name: 'Samuel Gunter', role: 'Software Engineer', githubUsername: 'Samathingamajig' },
+    { name: 'Derek Chen', role: 'Software Engineer', githubUsername: 'DereC4' },
+    { name: 'Casey Charleston', role: 'Software Engineer', githubUsername: 'caseycharleston' },
+    { name: 'Vinson', role: 'Software Engineer', githubUsername: 'vinsonzheng499' },
+    { name: 'Vivek', role: 'Software Engineer', githubUsername: 'vivek12311' },
+] as const satisfies TeamMember[];
+
+/**
+ * Represents the GitHub usernames of the SWEs in the LONGHORN_DEVELOPERS_SWE array.
+ */
+export type LD_SWE_GITHUB_USERNAMES = (typeof LONGHORN_DEVELOPERS_SWE)[number]['githubUsername'];
 
 /**
  * Represents the GitHub usernames of the admins in the LONGHORN_DEVELOPERS_ADMINS array.

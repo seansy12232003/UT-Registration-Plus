@@ -1,22 +1,17 @@
 import 'uno.css';
 
-import { BrowserClient, captureFeedback, defaultStackParser, getCurrentScope, makeFetchTransport } from '@sentry/react';
+import { captureFeedback } from '@sentry/react';
 import React, { useState } from 'react';
 
 import { Button } from './common/Button';
 import Text from './common/Text/Text';
 
-const client = new BrowserClient({
-    dsn: 'https://ed1a50d8626ff6be35b98d7b1ec86d9d@o4508033820852224.ingest.us.sentry.io/4508033822490624',
-    integrations: [],
-    transport: makeFetchTransport,
-    stackParser: defaultStackParser,
-});
-
-getCurrentScope().setClient(client);
-client.init();
-
-const ReportIssueMain: React.FC = () => {
+/**
+ * ReportIssueMain component renders a feedback form for users to submit their email and feedback.
+ *
+ * @returns The rendered component.
+ */
+export default function ReportIssueMain(): JSX.Element {
     const [email, setEmail] = useState('');
     const [feedback, setFeedback] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -122,6 +117,4 @@ const ReportIssueMain: React.FC = () => {
             </form>
         </div>
     );
-};
-
-export default ReportIssueMain;
+}
