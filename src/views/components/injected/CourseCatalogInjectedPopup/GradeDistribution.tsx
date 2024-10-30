@@ -1,6 +1,7 @@
 import type { Course } from '@shared/types/Course';
 import type { Distribution, LetterGrade } from '@shared/types/Distribution';
 import { extendedColors } from '@shared/types/ThemeColors';
+import Link from '@views/components/common/Link';
 import Text from '@views/components/common/Text/Text';
 import {
     NoDataError,
@@ -245,6 +246,14 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
                                     </option>
                                 ))}
                         </select>
+                        <Text>
+                            <Link
+                                href='https://reports.utexas.edu/spotlight-data/ut-course-grade-distributions'
+                                className='link'
+                            >
+                                About the Data
+                            </Link>
+                        </Text>
                     </div>
                     {distributions[semester] && !distributions[semester]!.instructorIncluded && (
                         <div className='mt-3 flex flex-wrap content-center items-center self-stretch justify-center gap-3'>
