@@ -212,7 +212,10 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
                 <>
                     <div className='flex flex-wrap content-center items-center self-stretch justify-center gap-3'>
                         <Text variant='small'>
-                            Grade Distribution for {course.department} {course.number}
+                            <span style={{ color: '#33e3F48' }}>Grade Distribution for </span>
+                            <strong>
+                                {course.department} {course.number}
+                            </strong>
                         </Text>
                         <select
                             className='border border rounded border-solid px-3 py-2'
