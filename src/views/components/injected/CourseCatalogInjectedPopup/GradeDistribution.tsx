@@ -142,6 +142,7 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
             tickColor: '#9CADB7',
             crosshair: true,
             lineColor: '#9CADB7',
+            lineWidth: 1.5,
         },
         yAxis: {
             labels: {
