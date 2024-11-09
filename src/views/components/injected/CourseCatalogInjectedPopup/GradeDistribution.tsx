@@ -165,8 +165,10 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
         },
         chart: {
             style: { fontFamily: 'Roboto Flex, Roboto Flex Local', fontWeight: '600' },
-            spacingBottom: 25,
-            spacingTop: 25,
+            spacingBottom: 0,
+            spacingTop: 11.18,
+            spacingLeft: 0,
+            spacingRight: 0,
             height: 250,
         },
         credits: { enabled: false },
@@ -211,7 +213,7 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
             {status === DataStatus.ERROR && <Text variant='p'>Error fetching grade distribution data</Text>}
             {status === DataStatus.FOUND && (
                 <>
-                    <div className='flex flex-wrap content-center items-center self-stretch justify-center gap-3'>
+                    <div className='flex flex-wrap content-center items-center self-stretch justify-center gap-3 pb-0.75 pt-1.25'>
                         <Text variant='small'>
                             <span style={{ color: '#33e3F48' }}>Grade Distribution for </span>
                             <strong>
