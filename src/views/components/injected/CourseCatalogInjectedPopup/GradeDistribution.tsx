@@ -14,6 +14,8 @@ import type { ChangeEvent } from 'react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
+const UT_GRADE_DISTRIBUTION_URL = 'https://reports.utexas.edu/spotlight-data/ut-course-grade-distributions';
+
 interface GradeDistributionProps {
     course: Course;
 }
@@ -46,10 +48,8 @@ const GRADE_COLORS = {
 /**
  * Renders the grade distribution chart for a specific course.
  *
- * @component
- * @param {GradeDistributionProps} props - The component props.
- * @param {Course} props.course - The course for which to display the grade distribution.
- * @returns {JSX.Element} The grade distribution chart component.
+ * @param course - The course for which to display the grade distribution.
+ * @returns The grade distribution chart component.
  */
 export default function GradeDistribution({ course }: GradeDistributionProps): JSX.Element {
     const [semester, setSemester] = useState('Aggregate');
@@ -137,12 +137,11 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
             },
             categories: ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F', 'Other'],
             tickInterval: 1,
-            tickWidth: 1.5,
+            tickWidth: 1,
             tickLength: 10,
             tickColor: '#9CADB7',
             crosshair: true,
             lineColor: '#9CADB7',
-            lineWidth: 1.5,
         },
         yAxis: {
             labels: {
@@ -166,10 +165,9 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
         },
         chart: {
             style: { fontFamily: 'Roboto Flex, Roboto Flex Local', fontWeight: '600' },
-            spacingBottom: 0,
-            spacingTop: 11.18,
-            spacingLeft: 0,
-            spacingRight: 0,
+            spacingBottom: 25,
+            spacingTop: 25,
+            spacingLeft: 1.5,
             height: 250,
         },
         credits: { enabled: false },
@@ -214,12 +212,12 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
             {status === DataStatus.ERROR && <Text variant='p'>Error fetching grade distribution data</Text>}
             {status === DataStatus.FOUND && (
                 <>
-                    <div className='flex flex-wrap content-center items-center self-stretch justify-center gap-3 pb-0.75 pt-1.25'>
-                        <Text variant='small'>
-                            <span style={{ color: '#33e3F48' }}>Grade Distribution for </span>
-                            <strong>
+                    <div className='flex flex-wrap content-center items-center self-stretch justify-center gap-3'>
+                        <Text variant='small' className='text-ut-black'>
+                            Grade Distribution for{' '}
+                            <Text variant='small' className='font-extrabold!' as='strong'>
                                 {course.department} {course.number}
-                            </strong>
+                            </Text>
                         </Text>
                         <select
                             className='border border rounded border-solid px-3 py-2'
@@ -249,14 +247,9 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
                                     </option>
                                 ))}
                         </select>
-                        <Text>
-                            <Link
-                                href='https://reports.utexas.edu/spotlight-data/ut-course-grade-distributions'
-                                className='link'
-                            >
-                                About the Data
-                            </Link>
-                        </Text>
+                        <Link variant='small' href={UT_GRADE_DISTRIBUTION_URL} className='link'>
+                            About the data
+                        </Link>
                     </div>
                     {distributions[semester] && !distributions[semester]!.instructorIncluded && (
                         <div className='mt-3 flex flex-wrap content-center items-center self-stretch justify-center gap-3'>
